@@ -23,6 +23,7 @@ export default class Level extends Phaser.Scene {
 		})
 		this.pads = this.input.gamepad
 		this.map = this.make.tilemap({ key: `level_${this.level}` })
+		this.peds = this.add.group()
 		this.tileset = this.map.addTilesetImage('tileset', 'tileset')
 		this.collisionLayer = this.map.createLayer('Collision', this.tileset, 0, 0)
 		this.collisionLayer.setCollisionByProperty({ collides: true })
@@ -33,8 +34,17 @@ export default class Level extends Phaser.Scene {
 		this.groundLayer = this.map.createLayer('Ground', this.tileset, 0, 0)
 		this.objectLayer = this.map.getObjectLayer('Objects')
 		this.objectLayer.objects.forEach((object) => {
+			console.log(object);
 			if (object.name === 'Spawn') {
 				this.player = new Player(this, object.x, object.y)
+			}else if(object.name === 'Enemie'){
+				let props = {}
+				if (object.properties) {
+					object.properties.forEach((property) => {
+						props[property.name] = property.value
+					})
+				}
+				this.peds.add(createEnemie(this, props.type, object.x, object.y, props))
 			}
 		})
 		this.physics.add.collider(this.player, this.collisionLayer)
@@ -55,9 +65,9 @@ export default class Level extends Phaser.Scene {
 		})
 		this.snow.setDepth(-10)
 
-		this.peds = this.add.group()
+		
 
-		this.peds.add(createEnemie(this, 'dog', 260, 195, {}))
+		
 		// this.test =
 	}
 	update() {
