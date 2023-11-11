@@ -1,0 +1,58 @@
+{ "frames": {
+   "0": {
+    "frame": { "x": 1, "y": 1, "w": 16, "h": 20 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 14, "h": 18 },
+    "sourceSize": { "w": 14, "h": 18 },
+    "duration": 100
+   },
+   "1": {
+    "frame": { "x": 18, "y": 1, "w": 14, "h": 18 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 1, "y": 1, "w": 12, "h": 16 },
+    "sourceSize": { "w": 14, "h": 18 },
+    "duration": 100
+   },
+   "2": {
+    "frame": { "x": 33, "y": 1, "w": 12, "h": 16 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 2, "y": 2, "w": 10, "h": 14 },
+    "sourceSize": { "w": 14, "h": 18 },
+    "duration": 100
+   },
+   "3": {
+    "frame": { "x": 33, "y": 18, "w": 10, "h": 14 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 3, "y": 3, "w": 8, "h": 12 },
+    "sourceSize": { "w": 14, "h": 18 },
+    "duration": 100
+   },
+   "4": {
+    "frame": { "x": 18, "y": 20, "w": 8, "h": 10 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 4, "y": 5, "w": 6, "h": 8 },
+    "sourceSize": { "w": 14, "h": 18 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.2.40-x64",
+  "image": "Sack.png",
+  "format": "RGBA8888",
+  "size": { "w": 45, "h": 32 },
+  "scale": "1",
+  "frameTags": [
+  ],
+  "layers": [
+   { "name": "Layer 1", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

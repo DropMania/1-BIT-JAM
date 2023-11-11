@@ -1,0 +1,44 @@
+{ "frames": {
+   "0": {
+    "frame": { "x": 1, "y": 1, "w": 33, "h": 12 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 31, "h": 10 },
+    "sourceSize": { "w": 31, "h": 10 },
+    "duration": 100
+   },
+   "1": {
+    "frame": { "x": 35, "y": 1, "w": 32, "h": 12 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 30, "h": 10 },
+    "sourceSize": { "w": 31, "h": 10 },
+    "duration": 100
+   },
+   "2": {
+    "frame": { "x": 1, "y": 1, "w": 33, "h": 12 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 31, "h": 10 },
+    "sourceSize": { "w": 31, "h": 10 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.2.40-x64",
+  "image": "Sleigh.png",
+  "format": "RGBA8888",
+  "size": { "w": 67, "h": 13 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "sleigh_fly", "from": 0, "to": 1, "direction": "forward" },
+   { "name": "sleigh_idle", "from": 2, "to": 2, "direction": "forward" }
+  ],
+  "layers": [
+   { "name": "Layer 1", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}
