@@ -5,6 +5,9 @@ export default class World extends Phaser.Scene {
 
 		this.game = game
 	}
+	init({ level }) {
+		this.level = level
+	}
 	preload() {}
 	create() {
 		this.keys = this.input.keyboard.addKeys({
@@ -21,10 +24,11 @@ export default class World extends Phaser.Scene {
 		this.map = this.make.tilemap({ key: 'world' })
 		this.tileset = this.map.addTilesetImage('tileset', 'tileset')
 		this.collisionLayer = this.map.createLayer('Collision', this.tileset, 0, 0)
-		this.collisionLayer.setCollisionByProperty({ collides: true })
+		this.collisionLayer.setCollision([241, 242])
 		this.background = this.add.image(0, 0, 'world').setOrigin(0, 0)
 		this.objectLayer = this.map.getObjectLayer('Objects')
 		this.entrances = this.add.group()
+		let state = this.registry.get('state')
 		this.objectLayer.objects.forEach((object) => {
 			let properties = {}
 			if (object.properties) {
@@ -40,9 +44,32 @@ export default class World extends Phaser.Scene {
 				entrance.level = properties.level
 				this.physics.add.existing(entrance)
 				this.entrances.add(entrance)
+				if (state.levelsDone.includes(properties.level)) {
+					this.add.image(object.x, object.y, 'Check')
+				}
+			}
+			if (object.name === 'Block') {
+				if (state.levelsDone.length < 3) {
+					this.block = this.add.image(object.x, object.y, 'Block').setOrigin(0, 0)
+					this.physics.add.existing(this.block)
+					this.block.body.setImmovable(true)
+				}
 			}
 		})
+		if (this.level) {
+			let level = this.objectLayer.objects.find((object) => {
+				return (
+					object.name === 'Level' &&
+					object.properties.find((property) => property.name === 'level' && property.value === this.level)
+				)
+			})
+			if (level) {
+				this.sleigh.x = level.x
+				this.sleigh.y = level.y
+			}
+		}
 		this.physics.add.collider(this.sleigh, this.collisionLayer)
+		this.physics.add.collider(this.sleigh, this.block)
 		this.cameras.main.setBounds(0, 0, this.background.width, this.background.height)
 		this.cameras.main.setZoom(3)
 		this.cameras.main.startFollow(this.sleigh, true, 0.1, 0.1)
@@ -51,9 +78,9 @@ export default class World extends Phaser.Scene {
 			x: { min: 0, max: this.map.widthInPixels },
 			blendMode: 'ADD',
 			scale: { start: 0.5, end: 0 },
-			gravityY: 50,
+			gravityY: 20,
 			lifespan: 3000,
-			quantity: 7,
+			quantity: 2,
 			speed: { min: 10, max: 50 },
 		})
 
@@ -69,15 +96,29 @@ export default class World extends Phaser.Scene {
 			.setResolution(5)
 			.setVisible(false)
 		this.keys.space.on('down', () => {
-			if (!this.onLevel) return
-			this.cameras.main.fadeOut(500, 0, 0, 0, (camera, progress) => {
-				if (progress === 1) {
-					this.scene.start('Level', { level: this.currentEntrance.level })
-				}
-			})
+			this.enterLevel()
+		})
+		this.pads.on('down', (pad, btn) => {
+			if (btn.index === 0) {
+				this.enterLevel()
+			}
+		})
+		this.UrlParams = new URLSearchParams(window.location.search)
+
+		if (this.UrlParams.has('lvl')) {
+			this.scene.start('Level', { level: this.UrlParams.get('lvl') })
+		}
+	}
+	enterLevel() {
+		if (!this.onLevel) return
+		this.cameras.main.fadeOut(500, 0, 0, 0, (camera, progress) => {
+			if (progress === 1) {
+				this.scene.start('Level', { level: this.currentEntrance.level })
+			}
 		})
 	}
 	update() {
+		this.snow.y = this.cameras.main.scrollY + 200
 		this.sleigh.update()
 		this.onLevel = this.physics.overlap(this.sleigh, this.entrances, (sleigh, entrance) => {
 			this.currentEntrance = entrance

@@ -7,6 +7,7 @@ export default class Menu extends Phaser.Scene {
 	init({}) {}
 	preload() {}
 	create() {
+		// console.log(this.UrlParams.get('lvl'))
 		this.add
 			.text(500, 100, this.registry.get('game_title'), {
 				fill: '#fff',
@@ -22,6 +23,10 @@ export default class Menu extends Phaser.Scene {
 			{
 				text: 'Play',
 				action: () => {
+					this.registry.set('state', {
+						sackSize: 0,
+						levelsDone: [],
+					})
 					//this.scene.start('Level', { level: 0 })
 					this.scene.start('World')
 				},

@@ -3,36 +3,67 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "world/world.tmx",
     "expandedProjectPaths": [
+        "levels",
+        "world",
+        "."
     ],
     "fileStates": {
+        "": {
+            "scaleInEditor": 1
+        },
+        "#tileset": {
+            "scaleInDock": 1
+        },
         "levels/level_0.tmx": {
-            "scale": 1.5,
-            "selectedLayer": 1,
+            "expandedObjectLayers": [
+                4
+            ],
+            "scale": 5.5,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 280,
-                "y": 258.6666666666667
+                "x": 1819.7272727272727,
+                "y": 135.8181818181818
             }
         },
         "levels/level_0.tmx#tileset": {
-            "scaleInDock": 2
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "world/world.tmx": {
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 8,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 440.3125,
+                "y": 271
+            }
+        },
+        "world/world.tmx#tileset": {
+            "scaleInDock": 1
         }
     },
-    "last.exportedFilePath": "C:/Users/robin/Desktop/projects/1-BIT JAM/assets/world",
+    "last.exportedFilePath": "C:/Users/robin/Desktop/projects/1-BIT JAM/assets/levels",
     "last.imagePath": "C:/Users/robin/Desktop/projects/1-BIT JAM/assets",
-    "map.height": 30,
+    "map.height": 15,
     "map.lastUsedExportFilter": "Alle Dateien (*)",
     "map.lastUsedFormat": "tmx",
     "map.layerDataFormat": null,
     "map.tileHeight": 16,
     "map.tileWidth": 16,
-    "map.width": 30,
+    "map.width": 170,
     "openFiles": [
+        "levels/level_0.tmx",
+        "world/world.tmx"
     ],
     "project": "tiled.tiled-project",
     "property.type": "bool",
     "recentFiles": [
+        "levels/level_0.tmx",
+        "world/world.tmx"
     ],
     "tileset.embedInMap": true,
     "tileset.tileSize": {

@@ -7,26 +7,57 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		this.scene = scene
 		this.scene.add.existing(this)
 		this.scene.physics.add.existing(this)
-		this.body.setCollideWorldBounds(true)
 		this.setGravityY(500)
 		this.scene.keys.jump.on('down', () => {
 			this.jump()
 		})
+		this.scene.keys.dash.on('down', () => {
+			this.dash()
+		})
+		this.scene.pads.on('down', (pad, button) => {
+			if (button.index == 0) {
+				this.jump()
+			}
+			if (button.index == 2) {
+				this.dash()
+			}
+		})
 		this.sack = this.scene.add.sprite(this.x - 8, this.y, 'Sack')
-		this.sackSize = 0
+		this.sackSize = this.scene.registry.get('state').sackSize
+		this.stopped = false
+		this.speed = 100
+		this.isDashing = false
+		this.dashCooldown = false
 	}
 	jump() {
-		if (this.body.onFloor()) {
+		if (this.body.onFloor() && !this.stopped) {
 			this.setVelocityY(-200)
 		}
 	}
+	dash() {
+		if (this.stopped || this.isDashing || this.dashCooldown) return
+		this.isDashing = true
+		this.speed = 300
+		this.alpha = 0.8
+		this.scene.time.delayedCall(200, () => {
+			this.speed = 100
+			this.alpha = 1
+			this.isDashing = false
+			this.dashCooldown = true
+			this.scene.time.delayedCall(500, () => {
+				this.dashCooldown = false
+			})
+		})
+	}
 	update() {
+		this.sack.setFrame(this.sackSize)
+		if (this.stopped) return
 		this.setVelocityX(0)
 		if (this.btnIs('left')) {
-			this.setVelocityX(-100)
+			this.setVelocityX(-this.speed)
 		}
 		if (this.btnIs('right')) {
-			this.setVelocityX(100)
+			this.setVelocityX(this.speed)
 		}
 		if (this.body.velocity.x > 0) {
 			this.setFlipX(false)
@@ -44,9 +75,16 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		if (!this.body.onFloor()) {
 			this.anims.play('santa_jump', true)
 		}
-		this.sack.setFrame(this.sackSize)
+		if (this.isDashing) {
+			this.anims.play('santa_jump', true)
+		}
 	}
 	btnIs(btn) {
 		return this.scene.pads.getAll().some((pad) => pad[btn]) || this.scene.keys[btn].isDown
+	}
+	stop() {
+		this.stopped = true
+		this.setVelocityX(0)
+		this.anims.play('santa_idle', true)
 	}
 }

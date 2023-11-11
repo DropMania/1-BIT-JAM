@@ -1,17 +1,153 @@
-export default class Dog extends Phaser.Physics.Arcade.Sprite {
+import Enemy from './Enemy.js'
+export default class Dog extends Enemy {
 	constructor(scene, x, y, props) {
-		super(scene, x, y, 'Dog')
+		super(scene, x, y, props, 'Dog')
 
-		this.scene = scene
-		this.scene.add.existing(this)
-		this.scene.physics.add.existing(this)
-		this.body.setCollideWorldBounds(true)
-		this.scene.anims.createFromAseprite('Dog')
+		this.spawnPos = {
+			x: x,
+			y: y,
+		}
+		this.setGravityY(50)
+		this.rotation = 0
+		this.ray = this.scene.raycaster.createRay({
+			x: this.x,
+			y: this.y,
+			angle: 0,
+			range: 0.1,
+			detectionRange: 0.1,
+			collisionRange: 0.1,
+			ignoreNotIntersectedRays: true,
+		})
 
-		// this.ray = this.scene.raycaster.createRay()
+		this.speed = 50
+		this.playerDetected = false
+		this.isMoving = false
+		this.isReturning = false
+		this.isAttacking = false
+		this.isBack = true
+
+		this.nextPatrollPoint = {
+			x: 400,
+		}
+
+		this.flipX = false
+
+		this.scene.time.addEvent({
+			delay: 2000,
+			callback: () => {
+				if (this.isMoving || this.isWaiting) {
+					return
+				}
+				this.flipX = !this.flipX
+			},
+			loop: true,
+		})
 	}
 
 	update() {
-		this.anims.play('dog_idle', true)
+		if (this.body.velocity.x > 0) {
+			this.setFlipX(false)
+		} else if (this.body.velocity.x < 0) {
+			this.setFlipX(true)
+		}
+
+		if (this.isAttacking) {
+			this.anims.play('dog_attack', true)
+		} else if (!this.isMoving) {
+			this.anims.play('dog_idle', true)
+		} else if (this.isMoving) {
+			this.anims.play('dog_run', true)
+		}
+
+		this.ray.setOrigin(this.x, this.y)
+
+		if (this.flipX) {
+			this.ray.setAngleDeg(180)
+		} else {
+			this.ray.setAngleDeg(0)
+		}
+
+		let intersection = this.ray.cast()
+		if (intersection.object && intersection.object !== this) {
+			let distance = Phaser.Math.Distance.Between(this.x, this.y, intersection.x, intersection.y)
+
+			/* follow player */
+			if (distance < 15) {
+				if (!this.scene.player.isDashing) {
+					this.setVelocity(0)
+					if (!this.isAttacking) {
+						this.isAttacking = true
+						this.scene.time.addEvent({
+							delay: 500,
+							callback: () => {
+								this.isAttacking = false
+							},
+						})
+					}
+				}
+			} else if (distance < 100) {
+				console.log('too close RUN!')
+				this.playerDetected = true
+				this.isMoving = true
+				this.isBack = false
+
+				this.scene.physics.moveTo(this, this.scene.player.x, this.scene.player.y, this.speed)
+				/* nothing to see */
+			} else {
+				console.log('must have been the wind!')
+				if (this.playerDetected) {
+					this.playerDetected = false
+					if (this.isReturning) {
+						this.waitForReturn()
+					}
+				}
+			}
+		} else {
+			/* move back to origin */
+			if (this.playerDetected) {
+				this.playerDetected = false
+				if (!this.isReturning) {
+					this.waitForReturn()
+				}
+			}
+		}
+
+		if (this.isReturning) {
+			this.moveBackToOrigin()
+		}
+	}
+
+	waitForReturn() {
+		if (!this.isWaiting) {
+			this.isMoving = false
+			this.isWaiting = true
+			this.setVelocity(0)
+			this.scene.time.addEvent({
+				delay: 1000,
+				callback: () => {
+					this.isReturning = true
+					this.isMoving = true
+					this.isWaiting = false
+				},
+			})
+		}
+	}
+
+	moveBackToOrigin() {
+		let distance = Phaser.Math.Distance.Between(this.x, this.y, this.spawnPos.x, this.spawnPos.y)
+		if (distance > 10 && !this.playerDetected) {
+			let returnSpeed =
+				(this.speed * distance) / this.speed > this.speed
+					? this.speed
+					: (this.speed * distance) / this.speed < 10
+					? 10
+					: (this.speed * distance) / this.speed
+
+			this.scene.physics.moveTo(this, this.spawnPos.x, this.y, returnSpeed)
+		} else {
+			this.setVelocity(0)
+			this.isMoving = false
+			this.isReturning = false
+		}
 	}
 }

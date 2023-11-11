@@ -41,6 +41,8 @@
 
 -   dogs
     -   guard dogs you should not be seen by otherwise they might hurt you
+    -   if they notice you they go after you and try to bite you
+    -
 -   cats
     -   dont startle the cat / wake
     -   sneak by them slowly

@@ -32,10 +32,26 @@
     "duration": 100
    },
    "4": {
-    "frame": { "x": 18, "y": 20, "w": 8, "h": 10 },
+    "frame": { "x": 18, "y": 20, "w": 9, "h": 13 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 3, "y": 4, "w": 7, "h": 11 },
+    "sourceSize": { "w": 14, "h": 18 },
+    "duration": 100
+   },
+   "5": {
+    "frame": { "x": 1, "y": 22, "w": 8, "h": 10 },
     "rotated": false,
     "trimmed": true,
     "spriteSourceSize": { "x": 4, "y": 5, "w": 6, "h": 8 },
+    "sourceSize": { "w": 14, "h": 18 },
+    "duration": 100
+   },
+   "6": {
+    "frame": { "x": 10, "y": 22, "w": 7, "h": 9 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 4, "y": 6, "w": 5, "h": 7 },
     "sourceSize": { "w": 14, "h": 18 },
     "duration": 100
    }
@@ -45,7 +61,7 @@
   "version": "1.2.40-x64",
   "image": "Sack.png",
   "format": "RGBA8888",
-  "size": { "w": 45, "h": 32 },
+  "size": { "w": 45, "h": 33 },
   "scale": "1",
   "frameTags": [
   ],
