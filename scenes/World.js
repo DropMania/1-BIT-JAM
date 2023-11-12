@@ -10,6 +10,9 @@ export default class World extends Phaser.Scene {
 	}
 	preload() {}
 	create() {
+		if (this.scene.get('UI').scene.isVisible()) {
+			this.scene.get('UI').scene.setVisible(false, 'UI')
+		}
 		this.keys = this.input.keyboard.addKeys({
 			left: Phaser.Input.Keyboard.KeyCodes.A,
 			right: Phaser.Input.Keyboard.KeyCodes.D,
@@ -103,11 +106,6 @@ export default class World extends Phaser.Scene {
 				this.enterLevel()
 			}
 		})
-		this.UrlParams = new URLSearchParams(window.location.search)
-
-		if (this.UrlParams.has('lvl')) {
-			this.scene.start('Level', { level: this.UrlParams.get('lvl') })
-		}
 	}
 	enterLevel() {
 		if (!this.onLevel) return

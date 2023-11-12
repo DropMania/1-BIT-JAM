@@ -20,26 +20,65 @@
             "expandedObjectLayers": [
                 4
             ],
-            "scale": 5.5,
+            "scale": 0.75,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 1819.7272727272727,
-                "y": 135.8181818181818
+                "x": 975.9999999999999,
+                "y": -188
             }
         },
         "levels/level_0.tmx#tileset": {
             "scaleInDock": 2,
             "scaleInEditor": 1
         },
+        "levels/level_2.tmx": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1342,
+                "y": -67
+            }
+        },
+        "levels/level_2.tmx#tileset": {
+            "scaleInDock": 1
+        },
+        "levels/level_3.tmx": {
+            "expandedObjectLayers": [
+                4
+            ],
+            "scale": 1.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 816.6666666666667,
+                "y": 177.3333333333333
+            }
+        },
+        "levels/level_3.tmx#tileset": {
+            "scaleInDock": 1
+        },
+        "levels/level_begin.tmx": {
+            "expandedObjectLayers": [
+                4
+            ],
+            "scale": 3,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 242.33333333333337,
+                "y": 183
+            }
+        },
+        "levels/level_begin.tmx#tileset": {
+            "scaleInDock": 1
+        },
         "world/world.tmx": {
             "expandedObjectLayers": [
                 3
             ],
-            "scale": 8,
+            "scale": 4,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 440.3125,
-                "y": 271
+                "x": 237.25,
+                "y": 56.5
             }
         },
         "world/world.tmx#tileset": {
@@ -54,14 +93,20 @@
     "map.layerDataFormat": null,
     "map.tileHeight": 16,
     "map.tileWidth": 16,
-    "map.width": 170,
+    "map.width": 30,
     "openFiles": [
+        "world/world.tmx",
         "levels/level_0.tmx",
-        "world/world.tmx"
+        "levels/level_2.tmx",
+        "levels/level_3.tmx",
+        "levels/level_begin.tmx"
     ],
     "project": "tiled.tiled-project",
-    "property.type": "bool",
+    "property.type": "string",
     "recentFiles": [
+        "levels/level_begin.tmx",
+        "levels/level_3.tmx",
+        "levels/level_2.tmx",
         "levels/level_0.tmx",
         "world/world.tmx"
     ],

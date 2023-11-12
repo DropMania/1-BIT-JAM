@@ -5,6 +5,8 @@ import Settings from './scenes/Settings.js'
 import Credits from './scenes/Credits.js'
 import World from './scenes/World.js'
 import Level from './scenes/Level.js'
+import UI from './scenes/UI.js'
+import Story from './scenes/Stroy.js'
 new Phaser.Game({
 	type: Phaser.AUTO,
 	width: window.innerWidth,
@@ -54,5 +56,5 @@ new Phaser.Game({
 			},
 		],
 	},
-	scene: [LoadingScreen, Loading, Menu, Settings, Credits, World, Level],
+	scene: [LoadingScreen, Loading, Menu, Settings, Credits, UI, World, Level, Story],
 })

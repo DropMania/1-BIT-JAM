@@ -12,6 +12,11 @@ export default class Level extends Phaser.Scene {
 	}
 	preload() {}
 	create() {
+		this.registry.set('player_health', 3)
+		if (!this.scene.get('UI').scene.isVisible()) {
+			this.scene.get('UI').scene.setVisible(true, 'UI')
+		}
+
 		this.raycaster = this.raycasterPlugin.createRaycaster({
 			debug: true,
 		})
@@ -29,6 +34,7 @@ export default class Level extends Phaser.Scene {
 		this.tileset = this.map.addTilesetImage('tileset', 'tileset')
 		this.collisionLayer = this.map.createLayer('Collision', this.tileset, 0, 0)
 		this.specialColls = this.add.group()
+		this.deathTiles = this.add.group()
 		this.collisionLayer.setCollision([241])
 		this.collisionLayer.forEachTile((tile) => {
 			if (tile.index === 242) {
@@ -37,6 +43,12 @@ export default class Level extends Phaser.Scene {
 				col.body.setImmovable(true)
 				this.specialColls.add(col)
 			}
+			if (tile.index === 243) {
+				let col = this.add.rectangle(tile.pixelX, tile.pixelY, 16, 16).setOrigin(0, 0)
+				this.physics.add.existing(col)
+				col.body.setImmovable(true)
+				this.deathTiles.add(col)
+			}
 		})
 		this.collisionLayer.visible = false
 		this.backgroundLayer = this.map.createLayer('Background', this.tileset, 0, 0)
@@ -44,33 +56,36 @@ export default class Level extends Phaser.Scene {
 		this.groundLayer = this.map.createLayer('Ground', this.tileset, 0, 0)
 		this.objectLayer = this.map.getObjectLayer('Objects')
 		this.objectLayer.objects.forEach((object) => {
+			let props = {}
+			if (object.properties) {
+				object.properties.forEach((property) => {
+					props[property.name] = property.value
+				})
+			}
 			// console.log(object)
 			if (object.name === 'Spawn') {
-				this.player = new Player(this, object.x, object.y)
+				this.player = new Player(this, object.x, object.y).setDepth(10)
 			} else if (object.name === 'Tree') {
 				this.tree = this.add.image(object.x, object.y, 'Tree').setOrigin(0, 0.6)
 				this.physics.add.existing(this.tree)
+			} else if (object.name === 'Image') {
+				this.add.image(object.x, object.y, props.src)
 			} else if (object.name === 'Enemie') {
-				let props = {}
-				let enemie = null
-				if (object.properties) {
-					object.properties.forEach((property) => {
-						props[property.name] = property.value
-					})
-				}
-				enemie = createEnemie(this, props.type, object.x, object.y, props)
-				this.physics.add.collider(enemie, this.collisionLayer)
-				this.physics.add.collider(enemie, this.specialColls)
-				this.peds.add(enemie)
-				this.updateRaycaster()
+				this.peds.add(createEnemie(this, props.type, object.x, object.y, props))
 			}
 		})
 
 		this.physics.add.collider(this.player, this.collisionLayer)
 		this.physics.add.collider(this.player, this.specialColls)
+		this.physics.add.collider(this.player, this.deathTiles, () => {
+			this.gameOver()
+		})
 		this.physics.add.overlap(this.player, this.tree, (player, tree) => {
 			this.finish(tree)
 		})
+
+		this.physics.add.collider(this.peds, this.collisionLayer)
+		this.physics.add.collider(this.peds, this.specialColls)
 
 		this.cameras.main.centerOn(this.player.x, this.player.y)
 		this.cameras.main.startFollow(this.player, true, 0.1, 0.1)
@@ -89,12 +104,14 @@ export default class Level extends Phaser.Scene {
 		}) 
 		this.snow.setDepth(-10)
 		*/
+		this.updateRaycaster()
 	}
 	finish(tree) {
 		if (this.finished) return
 		this.finished = true
 		let state = this.registry.get('state')
-		if (!state.levelsDone.includes(this.level)) {
+		console.log(this.level, state.levelsDone)
+		if (!state.levelsDone.includes(this.level) && this.level != 'begin') {
 			this.player.sackSize += 1
 			state.sackSize = this.player.sackSize
 			state.levelsDone.push(this.level)
@@ -105,7 +122,7 @@ export default class Level extends Phaser.Scene {
 		let fanfare = this.sound.add('fanfare')
 		fanfare.play()
 		fanfare.once('complete', () => {
-			this.fadeOut()
+			this.fadeOut('Finish')
 		})
 	}
 	gameOver() {
@@ -118,10 +135,12 @@ export default class Level extends Phaser.Scene {
 			this.fadeOut()
 		})
 	}
-	fadeOut() {
+	fadeOut(type) {
+		let state = this.registry.get('state')
 		this.cameras.main.fadeOut(300, 0, 0, 0, (camera, progress) => {
 			if (progress === 1) {
-				this.scene.start('World', { level: this.level })
+				if (type == 'Finish' && state.levelsDone.length >= 6) this.scene.start('Story', { id: 'end' })
+				else this.scene.start('World', { level: this.level })
 			}
 		})
 	}

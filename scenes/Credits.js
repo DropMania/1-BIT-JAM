@@ -102,7 +102,7 @@ export default class Credits extends Phaser.Scene {
 		if (this.prevScene) {
 			this.scene.start(this.prevScene)
 		} else {
-			this.scene.start('World', { spawn: 'start' })
+			this.scene.start('World')
 		}
 	}
 }

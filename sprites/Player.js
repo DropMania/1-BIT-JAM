@@ -23,11 +23,14 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 			}
 		})
 		this.sack = this.scene.add.sprite(this.x - 8, this.y, 'Sack')
+		this.sack.setDepth(9)
 		this.sackSize = this.scene.registry.get('state').sackSize
 		this.stopped = false
 		this.speed = 100
 		this.isDashing = false
 		this.dashCooldown = false
+		this.stoppedType = ''
+		this.isKnockbacked = false
 	}
 	jump() {
 		if (this.body.onFloor() && !this.stopped) {
@@ -51,8 +54,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	}
 	update() {
 		this.sack.setFrame(this.sackSize)
+		this.sack.y = this.y
 		if (this.stopped) return
-		this.setVelocityX(0)
+		if (!this.isKnockbacked) {
+			this.setVelocityX(0)
+		}
 		if (this.btnIs('left')) {
 			this.setVelocityX(-this.speed)
 		}
@@ -66,7 +72,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 			this.setFlipX(true)
 			this.sack.x = this.x + 6
 		}
-		this.sack.y = this.y
 		if (this.body.velocity.x != 0) {
 			this.anims.play('santa_walk', true)
 		} else {
@@ -82,9 +87,61 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	btnIs(btn) {
 		return this.scene.pads.getAll().some((pad) => pad[btn]) || this.scene.keys[btn].isDown
 	}
-	stop() {
+	stop(type) {
 		this.stopped = true
 		this.setVelocityX(0)
-		this.anims.play('santa_idle', true)
+		if (type == 'GameOver') {
+			this.anims.play(
+				{
+					key: 'santa_death',
+					frameRate: 15,
+					repeat: 0,
+				},
+				true
+			)
+			this.sack.setVisible(false)
+		} else if (type == 'Finish') {
+			this.anims.play(
+				{
+					key: 'santa_win',
+					frameRate: 15,
+					repeat: 0,
+				},
+				true
+			)
+			this.sack.setVisible(false)
+		} else {
+			this.anims.play('santa_idle', true)
+		}
+	}
+	hit(enemie) {
+		if (this.isKnockbacked) return
+		if (this.stopped) return
+		console.log('player hit')
+		this.isKnockbacked = true
+		let playerHealth = this.scene.registry.get('player_health') - 1
+		playerHealth = playerHealth < 0 ? 0 : playerHealth
+		if (this.body.velocity.x > 0) {
+			this.setVelocity(-200, -200)
+		} else if (this.body.velocity.x < 0) {
+			this.setVelocity(100, -200)
+		} else {
+			if (this.flipX) {
+				this.setVelocity(-200, -200)
+			} else {
+				this.setVelocity(100, -200)
+			}
+		}
+		this.scene.registry.set('player_health', playerHealth)
+		if (playerHealth == 0) {
+			this.scene.gameOver()
+		} else {
+			this.scene.time.addEvent({
+				delay: 500,
+				callback: () => {
+					this.isKnockbacked = false
+				},
+			})
+		}
 	}
 }

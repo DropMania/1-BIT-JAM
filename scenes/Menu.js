@@ -8,6 +8,7 @@ export default class Menu extends Phaser.Scene {
 	preload() {}
 	create() {
 		// console.log(this.UrlParams.get('lvl'))
+		this.UrlParams = new URLSearchParams(window.location.search)
 		this.add
 			.text(500, 100, this.registry.get('game_title'), {
 				fill: '#fff',
@@ -23,12 +24,25 @@ export default class Menu extends Phaser.Scene {
 			{
 				text: 'Play',
 				action: () => {
-					this.registry.set('state', {
-						sackSize: 0,
-						levelsDone: [],
-					})
+					if (this.UrlParams.has('all')) {
+						this.registry.set('state', {
+							sackSize: 6,
+							levelsDone: ['0', '1', '2', '3', '4', '5'],
+						})
+					} else {
+						this.registry.set('state', {
+							sackSize: 0,
+							levelsDone: [],
+						})
+					}
 					//this.scene.start('Level', { level: 0 })
-					this.scene.start('World')
+					//this.scene.start('World')
+
+					if (this.UrlParams.has('lvl')) {
+						this.scene.start('Level', { level: this.UrlParams.get('lvl') })
+						return
+					}
+					this.scene.start('Story', { id: 'intro' })
 				},
 			},
 			{

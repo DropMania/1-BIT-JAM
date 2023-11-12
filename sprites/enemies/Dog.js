@@ -13,10 +13,11 @@ export default class Dog extends Enemy {
 			x: this.x,
 			y: this.y,
 			angle: 0,
-			range: 0.1,
-			detectionRange: 0.1,
-			collisionRange: 0.1,
+			range: 5,
+			detectionRange: 5,
+			collisionRange: 5,
 			ignoreNotIntersectedRays: true,
+			cone: 20,
 		})
 
 		this.speed = 50
@@ -24,6 +25,7 @@ export default class Dog extends Enemy {
 		this.isMoving = false
 		this.isReturning = false
 		this.isAttacking = false
+		this.isAttackCooldown = false
 		this.isBack = true
 
 		this.nextPatrollPoint = {
@@ -73,14 +75,24 @@ export default class Dog extends Enemy {
 
 			/* follow player */
 			if (distance < 15) {
-				if (!this.scene.player.isDashing) {
+				if (!this.scene.player.isDashing && !this.scene.player.stopped && !this.isAttackCooldown) {
 					this.setVelocity(0)
 					if (!this.isAttacking) {
 						this.isAttacking = true
+						this.isAttackCooldown = true
 						this.scene.time.addEvent({
-							delay: 500,
+							delay: 200,
 							callback: () => {
 								this.isAttacking = false
+								if (Phaser.Math.Distance.Between(this.x, this.y, intersection.x, intersection.y) < 15) {
+									this.scene.player.hit(this)
+								}
+							},
+						})
+						this.scene.time.addEvent({
+							delay: 1000,
+							callback: () => {
+								this.isAttackCooldown = false
 							},
 						})
 					}
