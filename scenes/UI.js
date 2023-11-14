@@ -13,6 +13,9 @@ export default class UI extends Phaser.Scene {
 
 		this.scene.setVisible(false, 'UI')
 
+		this.lifesImg = this.add.sprite(100, 160, 'Lifes', 0)
+		this.lifesImg.setVisible(true)
+
 		this.healthDisplay = this.add
 			.text(100, 100, this.registry.get('player_health'), {
 				fill: '#fff',

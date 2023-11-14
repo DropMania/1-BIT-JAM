@@ -35,6 +35,7 @@ export default class Level extends Phaser.Scene {
 		this.collisionLayer = this.map.createLayer('Collision', this.tileset, 0, 0)
 		this.specialColls = this.add.group()
 		this.deathTiles = this.add.group()
+		this.jumpTiles = this.add.group()
 		this.collisionLayer.setCollision([241])
 		this.collisionLayer.forEachTile((tile) => {
 			if (tile.index === 242) {
@@ -48,6 +49,15 @@ export default class Level extends Phaser.Scene {
 				this.physics.add.existing(col)
 				col.body.setImmovable(true)
 				this.deathTiles.add(col)
+			}
+			if (tile.index === 244) {
+				let col = this.add.rectangle(tile.pixelX, tile.pixelY, 16, 16).setOrigin(0, 0)
+				this.physics.add.existing(col)
+				col.body.setImmovable(true)
+				col.body.checkCollision.down = false
+				col.body.checkCollision.left = false
+				col.body.checkCollision.right = false
+				this.jumpTiles.add(col)
 			}
 		})
 		this.collisionLayer.visible = false
@@ -80,6 +90,9 @@ export default class Level extends Phaser.Scene {
 		this.physics.add.collider(this.player, this.deathTiles, () => {
 			this.gameOver()
 		})
+		this.physics.add.collider(this.player, this.jumpTiles, (obj1, obj2) => {
+			this.player.jump(-350)
+		})
 		this.physics.add.overlap(this.player, this.tree, (player, tree) => {
 			this.finish(tree)
 		})
@@ -104,6 +117,7 @@ export default class Level extends Phaser.Scene {
 		}) 
 		this.snow.setDepth(-10)
 		*/
+
 		this.updateRaycaster()
 	}
 	finish(tree) {

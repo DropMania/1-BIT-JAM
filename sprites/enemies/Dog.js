@@ -7,6 +7,12 @@ export default class Dog extends Enemy {
 			x: x,
 			y: y,
 		}
+
+		if(props.flip !== undefined ){
+			this.flipX = props.flip
+		}else{
+			this.flipX = false
+		}
 		this.setGravityY(50)
 		this.rotation = 0
 		this.ray = this.scene.raycaster.createRay({
@@ -32,7 +38,7 @@ export default class Dog extends Enemy {
 			x: 400,
 		}
 
-		this.flipX = false
+		
 
 		this.scene.time.addEvent({
 			delay: 2000,
@@ -98,7 +104,7 @@ export default class Dog extends Enemy {
 					}
 				}
 			} else if (distance < 100) {
-				console.log('too close RUN!')
+				// console.log('too close RUN!')
 				this.playerDetected = true
 				this.isMoving = true
 				this.isBack = false
@@ -106,7 +112,7 @@ export default class Dog extends Enemy {
 				this.scene.physics.moveTo(this, this.scene.player.x, this.scene.player.y, this.speed)
 				/* nothing to see */
 			} else {
-				console.log('must have been the wind!')
+				// console.log('must have been the wind!')
 				if (this.playerDetected) {
 					this.playerDetected = false
 					if (this.isReturning) {

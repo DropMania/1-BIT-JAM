@@ -6,7 +6,7 @@ export default class Loading extends Phaser.Scene {
 	}
 	preload() {
 		this.load.setBaseURL('assets/')
-		this.sprites = ['Santa', 'Sack', 'Snow', 'Dog', 'Sleigh']
+		this.sprites = ['Santa', 'Sack', 'Snow', 'Dog', 'Sleigh','Lifes']
 		this.static = ['Tree', 'Presents', 'Check', 'Block', 'Border']
 		this.images = ['FloorIsLava', 'Controls']
 		this.sfx = ['fanfare', 'gameOver', 'text_1', 'text_2', 'text_3']
@@ -31,6 +31,14 @@ export default class Loading extends Phaser.Scene {
 		this.load.image('world', 'world/world.png')
 	}
 	create() {
+
+		if(localStorage.getItem('volume') === null){
+			let vol = Math.round(this.sound.volume * 10).toFixed(0)
+			localStorage.setItem('volume', vol)
+		}else{
+			this.sound.volume = (Number(localStorage.getItem('volume')) / 10).toFixed(0)
+		}
+
 		this.sprites.forEach((sprite) => {
 			this.anims.createFromAseprite(sprite)
 		})

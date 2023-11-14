@@ -101,3 +101,9 @@
 -   the floor is lava
     -   sign in the background
     -   you know what to do.. dont touch the floor
+
+
+# sounds
+- text display sounds
+- jumping sound (better feedback?)
+- damage/hit sound

@@ -1,0 +1,42 @@
+{ "frames": {
+   "0": {
+    "frame": { "x": 1, "y": 1, "w": 192, "h": 46 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 1, "y": 1, "w": 190, "h": 44 },
+    "sourceSize": { "w": 192, "h": 46 },
+    "duration": 100
+   },
+   "1": {
+    "frame": { "x": 194, "y": 1, "w": 128, "h": 46 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 1, "y": 1, "w": 126, "h": 44 },
+    "sourceSize": { "w": 192, "h": 46 },
+    "duration": 100
+   },
+   "2": {
+    "frame": { "x": 323, "y": 1, "w": 64, "h": 46 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 1, "y": 1, "w": 62, "h": 44 },
+    "sourceSize": { "w": 192, "h": 46 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.2.40-x64",
+  "image": "Lifes.png",
+  "format": "RGBA8888",
+  "size": { "w": 387, "h": 47 },
+  "scale": "1",
+  "frameTags": [
+  ],
+  "layers": [
+   { "name": "Layer 1", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

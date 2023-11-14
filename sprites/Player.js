@@ -32,9 +32,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		this.stoppedType = ''
 		this.isKnockbacked = false
 	}
-	jump() {
+	jump(height=-200) {
 		if (this.body.onFloor() && !this.stopped) {
-			this.setVelocityY(-200)
+			this.setVelocityY(height)
 		}
 	}
 	dash() {
