@@ -21,6 +21,8 @@ export default class World extends Phaser.Scene {
 			esc: Phaser.Input.Keyboard.KeyCodes.ESC,
 			space: Phaser.Input.Keyboard.KeyCodes.SPACE,
 		})
+		this.song = this.sound.add('winter', { loop: true, volume: 0.5 })
+		this.song.play()
 		this.pads = this.input.gamepad
 		this.onLevel = false
 		this.currentEntrance = 0
@@ -111,6 +113,7 @@ export default class World extends Phaser.Scene {
 		if (!this.onLevel) return
 		this.cameras.main.fadeOut(500, 0, 0, 0, (camera, progress) => {
 			if (progress === 1) {
+				this.song.stop()
 				this.scene.start('Level', { level: this.currentEntrance.level })
 			}
 		})

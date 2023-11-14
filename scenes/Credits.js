@@ -12,9 +12,9 @@ export default class Credits extends Phaser.Scene {
 		// this.song = this.sound.add('comfy', { loop: true, volume: 0.5 })
 		// this.song.play()
 		let credits = [
-			[this.registry.get('game_title'), ['1-BIT JAM.']],
-			['Theme', ['You Start With Everything And End With Nothing']],
-			['Credits', []],
+			[this.registry.get('game_title'), ['1-BIT JAM.', '']],
+			['Theme', ['You Start With Everything And End With Nothing', '']],
+			['Credits', ['']],
 			['Programming', ['DropMania', 'MrBartagam', '']],
 			['Art', ['DropMania', '']],
 			['Music', ['DropMania', '']],

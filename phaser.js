@@ -56,5 +56,5 @@ new Phaser.Game({
 			},
 		],
 	},
-	scene: [LoadingScreen, Loading, Menu, Settings, Credits, UI, World, Level, Story],
+	scene: [LoadingScreen, Loading, Menu, Settings, Credits, World, Level, Story, UI],
 })

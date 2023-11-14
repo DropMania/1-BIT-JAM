@@ -10,6 +10,7 @@ export default class Loading extends Phaser.Scene {
 		this.static = ['Tree', 'Presents', 'Check', 'Block', 'Border']
 		this.images = ['FloorIsLava', 'Controls']
 		this.sfx = ['fanfare', 'gameOver', 'text_1', 'text_2', 'text_3']
+		this.songs = ['winter']
 		this.sprites.forEach((sprite) => {
 			this.load.aseprite(sprite, `sprites/${sprite}/${sprite}.png`, `sprites/${sprite}/${sprite}.json`)
 		})
@@ -21,6 +22,9 @@ export default class Loading extends Phaser.Scene {
 		})
 		this.sfx.forEach((sfx) => {
 			this.load.audio(sfx, `sound/sfx/${sfx}.ogg`)
+		})
+		this.songs.forEach((song) => {
+			this.load.audio(song, `sound/music/${song}.ogg`)
 		})
 		this.load.image('tileset', 'tileset.png')
 		this.load.tilemapTiledJSON(`level_begin`, `levels/level_begin.json`)
