@@ -37,11 +37,12 @@ export default class Menu extends Phaser.Scene {
 					}
 					//this.scene.start('Level', { level: 0 })
 					//this.scene.start('World')
-
+					this.scene.start('UI')
 					if (this.UrlParams.has('lvl')) {
 						this.scene.start('Level', { level: this.UrlParams.get('lvl') })
 						return
 					}
+					
 					this.scene.start('Story', { id: 'intro' })
 				},
 			},
