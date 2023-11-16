@@ -100,6 +100,12 @@
  "nextlayerid":5,
  "nextobjectid":4,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"song",
+         "type":"string",
+         "value":"winter"
+        }],
  "renderorder":"right-down",
  "tiledversion":"1.10.1",
  "tileheight":16,

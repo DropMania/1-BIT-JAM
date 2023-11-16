@@ -30,6 +30,16 @@ export default class Level extends Phaser.Scene {
 		this.finished = false
 		this.pads = this.input.gamepad
 		this.map = this.make.tilemap({ key: `level_${this.level}` })
+		this.mapProps = {}
+		if (this.map.properties && this.map.properties.forEach) {
+			this.map.properties.forEach((property) => {
+				this.mapProps[property.name] = property.value
+			})
+		}
+		if (this.mapProps.song) {
+			this.sound.stopAll()
+			this.sound.play(this.mapProps.song, { loop: true, volume: 0.5 })
+		}
 		this.peds = this.add.group()
 		this.tileset = this.map.addTilesetImage('tileset', 'tileset')
 		this.collisionLayer = this.map.createLayer('Collision', this.tileset, 0, 0)
@@ -104,6 +114,7 @@ export default class Level extends Phaser.Scene {
 		this.cameras.main.startFollow(this.player, true, 0.1, 0.1)
 		this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels)
 		this.cameras.main.setZoom(3)
+		this.physics.world.setBounds(0, -16, this.map.widthInPixels, this.map.heightInPixels + 16)
 
 		/* this.snow = this.add.particles(0, 0, 'Snow', {
 			frame: [0, 1, 2, 3, 4],
@@ -134,6 +145,7 @@ export default class Level extends Phaser.Scene {
 		this.add.image(tree.x, tree.y, 'Presents').setOrigin(0, 0.6)
 		this.player.stop('Finish')
 		let fanfare = this.sound.add('fanfare')
+		this.sound.stopAll()
 		fanfare.play()
 		fanfare.once('complete', () => {
 			this.fadeOut('Finish')
@@ -144,6 +156,7 @@ export default class Level extends Phaser.Scene {
 		this.finished = true
 		this.player.stop('GameOver')
 		let gameOver = this.sound.add('gameOver')
+		this.sound.stopAll()
 		gameOver.play()
 		gameOver.once('complete', () => {
 			this.fadeOut()

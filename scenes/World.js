@@ -21,7 +21,7 @@ export default class World extends Phaser.Scene {
 			esc: Phaser.Input.Keyboard.KeyCodes.ESC,
 			space: Phaser.Input.Keyboard.KeyCodes.SPACE,
 		})
-		this.song = this.sound.add('winter', { loop: true, volume: 0.5 })
+		this.song = this.sound.add('overworld', { loop: true, volume: 0.5 })
 		this.song.play()
 		this.pads = this.input.gamepad
 		this.onLevel = false

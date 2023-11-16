@@ -6,11 +6,11 @@ export default class Loading extends Phaser.Scene {
 	}
 	preload() {
 		this.load.setBaseURL('assets/')
-		this.sprites = ['Santa', 'Sack', 'Snow', 'Dog', 'Sleigh','Lifes']
+		this.sprites = ['Santa', 'Sack', 'Snow', 'Dog', 'Sleigh', 'Lifes']
 		this.static = ['Tree', 'Presents', 'Check', 'Block', 'Border']
 		this.images = ['FloorIsLava', 'Controls', 'BewareOfDogs', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight']
 		this.sfx = ['fanfare', 'gameOver', 'text_1', 'text_2', 'text_3']
-		this.songs = ['winter']
+		this.songs = ['winter', 'overworld']
 		this.sprites.forEach((sprite) => {
 			this.load.aseprite(sprite, `sprites/${sprite}/${sprite}.png`, `sprites/${sprite}/${sprite}.json`)
 		})
@@ -28,19 +28,18 @@ export default class Loading extends Phaser.Scene {
 		})
 		this.load.image('tileset', 'tileset.png')
 		this.load.tilemapTiledJSON(`level_begin`, `levels/level_begin.json`)
-		for (var i = 0; i <= 3; i++) {
+		for (var i = 0; i <= 4; i++) {
 			this.load.tilemapTiledJSON(`level_${i}`, `levels/level_${i}.json`)
 		}
 		this.load.tilemapTiledJSON('world', 'world/world.json')
 		this.load.image('world', 'world/world.png')
 	}
 	create() {
-
-		if(localStorage.getItem('volume') === null){
+		if (localStorage.getItem('volume') === null) {
 			let vol = Math.round(this.sound.volume * 10).toFixed(0)
 			localStorage.setItem('volume', vol)
-		}else{
-			this.sound.volume = (Number(localStorage.getItem('volume')) / 10).toFixed(0)
+		} else {
+			this.sound.volume = (Number(localStorage.getItem('volume')) / 10).toFixed(1)
 		}
 
 		this.sprites.forEach((sprite) => {

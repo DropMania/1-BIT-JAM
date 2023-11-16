@@ -3,11 +3,11 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "world/world.tmx",
+    "activeFile": "levels/level_3.tmx",
     "expandedProjectPaths": [
         "levels",
-        "world",
-        "."
+        ".",
+        "world"
     ],
     "fileStates": {
         "": {
@@ -20,23 +20,37 @@
             "expandedObjectLayers": [
                 4
             ],
-            "scale": 0.75,
-            "selectedLayer": 0,
+            "scale": 1.5,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 975.9999999999999,
-                "y": -188
+                "x": 593.9999999999999,
+                "y": 77.33333333333337
             }
         },
         "levels/level_0.tmx#tileset": {
             "scaleInDock": 2,
             "scaleInEditor": 1
         },
-        "levels/level_2.tmx": {
+        "levels/level_1.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
             "scale": 1,
-            "selectedLayer": 0,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 1342,
-                "y": -67
+                "x": 731,
+                "y": 144
+            }
+        },
+        "levels/level_1.tmx#tileset": {
+            "scaleInDock": 1
+        },
+        "levels/level_2.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 1569.3333333333335,
+                "y": -152
             }
         },
         "levels/level_2.tmx#tileset": {
@@ -49,11 +63,25 @@
             "scale": 1.5,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 816.6666666666667,
-                "y": 177.3333333333333
+                "x": 813.3333333333333,
+                "y": 174.66666666666669
             }
         },
         "levels/level_3.tmx#tileset": {
+            "scaleInDock": 1
+        },
+        "levels/level_4.tmx": {
+            "expandedObjectLayers": [
+                4
+            ],
+            "scale": 0.25,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": -776,
+                "y": 1492
+            }
+        },
+        "levels/level_4.tmx#tileset": {
             "scaleInDock": 1
         },
         "levels/level_begin.tmx": {
@@ -61,10 +89,10 @@
                 4
             ],
             "scale": 3,
-            "selectedLayer": 0,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 242.33333333333337,
-                "y": 183
+                "x": 229.66666666666663,
+                "y": 201
             }
         },
         "levels/level_begin.tmx#tileset": {
@@ -74,11 +102,11 @@
             "expandedObjectLayers": [
                 3
             ],
-            "scale": 4,
+            "scale": 1.5,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 237.25,
-                "y": 56.5
+                "x": 248.66666666666663,
+                "y": 239.66666666666669
             }
         },
         "world/world.tmx#tileset": {
@@ -87,7 +115,7 @@
     },
     "last.exportedFilePath": "C:/Users/robin/Desktop/projects/1-BIT JAM/assets/levels",
     "last.imagePath": "C:/Users/robin/Desktop/projects/1-BIT JAM/assets",
-    "map.height": 15,
+    "map.height": 250,
     "map.lastUsedExportFilter": "Alle Dateien (*)",
     "map.lastUsedFormat": "tmx",
     "map.layerDataFormat": null,
@@ -104,11 +132,11 @@
     "project": "tiled.tiled-project",
     "property.type": "string",
     "recentFiles": [
-        "levels/level_begin.tmx",
-        "levels/level_3.tmx",
-        "levels/level_2.tmx",
+        "world/world.tmx",
         "levels/level_0.tmx",
-        "world/world.tmx"
+        "levels/level_2.tmx",
+        "levels/level_begin.tmx",
+        "levels/level_3.tmx"
     ],
     "tileset.embedInMap": true,
     "tileset.tileSize": {

@@ -31,8 +31,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		this.dashCooldown = false
 		this.stoppedType = ''
 		this.isKnockbacked = false
+		this.setCollideWorldBounds(true)
 	}
-	jump(height=-200) {
+	jump(height = -200) {
 		if (this.body.onFloor() && !this.stopped) {
 			this.setVelocityY(height)
 		}
