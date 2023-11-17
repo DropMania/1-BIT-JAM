@@ -132,11 +132,13 @@
     "project": "tiled.tiled-project",
     "property.type": "string",
     "recentFiles": [
+        "levels/level_1.tmx",
         "world/world.tmx",
         "levels/level_0.tmx",
         "levels/level_2.tmx",
-        "levels/level_begin.tmx",
-        "levels/level_3.tmx"
+        "levels/level_3.tmx",
+        "levels/level_4.tmx",
+        "levels/level_begin.tmx"
     ],
     "tileset.embedInMap": true,
     "tileset.tileSize": {
