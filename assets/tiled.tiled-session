@@ -3,10 +3,10 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "levels/level_3.tmx",
+    "activeFile": "levels/level_begin.tmx",
     "expandedProjectPaths": [
-        "levels",
         ".",
+        "levels",
         "world"
     ],
     "fileStates": {
@@ -23,8 +23,8 @@
             "scale": 1.5,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 593.9999999999999,
-                "y": 77.33333333333337
+                "x": 1200,
+                "y": 120.33333333333331
             }
         },
         "levels/level_0.tmx#tileset": {
@@ -38,8 +38,8 @@
             "scale": 1,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 731,
-                "y": 144
+                "x": 729,
+                "y": 142
             }
         },
         "levels/level_1.tmx#tileset": {
@@ -49,8 +49,8 @@
             "scale": 0.75,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 1569.3333333333335,
-                "y": -152
+                "x": 1360,
+                "y": 120.66666666666663
             }
         },
         "levels/level_2.tmx#tileset": {
@@ -63,8 +63,8 @@
             "scale": 1.5,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 813.3333333333333,
-                "y": 174.66666666666669
+                "x": 1600,
+                "y": 120.33333333333331
             }
         },
         "levels/level_3.tmx#tileset": {
@@ -77,11 +77,25 @@
             "scale": 0.25,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": -776,
-                "y": 1492
+                "x": 240,
+                "y": 1598
             }
         },
         "levels/level_4.tmx#tileset": {
+            "scaleInDock": 1
+        },
+        "levels/level_5.tmx": {
+            "expandedObjectLayers": [
+                4
+            ],
+            "scale": 0.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 484,
+                "y": 20
+            }
+        },
+        "levels/level_5.tmx#tileset": {
             "scaleInDock": 1
         },
         "levels/level_begin.tmx": {
@@ -91,22 +105,33 @@
             "scale": 3,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 229.66666666666663,
-                "y": 201
+                "x": 212,
+                "y": 139
             }
         },
         "levels/level_begin.tmx#tileset": {
+            "scaleInDock": 1
+        },
+        "levels/level_grinch.tmx": {
+            "scale": 3,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 188,
+                "y": 249
+            }
+        },
+        "levels/level_grinch.tmx#tileset": {
             "scaleInDock": 1
         },
         "world/world.tmx": {
             "expandedObjectLayers": [
                 3
             ],
-            "scale": 1.5,
+            "scale": 8,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 248.66666666666663,
-                "y": 239.66666666666669
+                "x": 401.75,
+                "y": 183
             }
         },
         "world/world.tmx#tileset": {
@@ -115,19 +140,21 @@
     },
     "last.exportedFilePath": "C:/Users/robin/Desktop/projects/1-BIT JAM/assets/levels",
     "last.imagePath": "C:/Users/robin/Desktop/projects/1-BIT JAM/assets",
-    "map.height": 250,
+    "map.height": 40,
     "map.lastUsedExportFilter": "Alle Dateien (*)",
     "map.lastUsedFormat": "tmx",
     "map.layerDataFormat": null,
     "map.tileHeight": 16,
     "map.tileWidth": 16,
-    "map.width": 30,
+    "map.width": 40,
     "openFiles": [
         "world/world.tmx",
         "levels/level_0.tmx",
         "levels/level_2.tmx",
         "levels/level_3.tmx",
-        "levels/level_begin.tmx"
+        "levels/level_begin.tmx",
+        "levels/level_4.tmx",
+        "levels/level_1.tmx"
     ],
     "project": "tiled.tiled-project",
     "property.type": "string",
@@ -137,6 +164,10 @@
         "levels/level_0.tmx",
         "levels/level_2.tmx",
         "levels/level_3.tmx",
+<<<<<<< Updated upstream
+=======
+        "levels/level_1.tmx",
+>>>>>>> Stashed changes
         "levels/level_4.tmx",
         "levels/level_begin.tmx"
     ],

@@ -19,6 +19,7 @@ new Phaser.Game({
 			gravity: { y: 0 },
 			fps: 60,
 			fixedStep: true,
+
 			//debug: true,
 		},
 	},

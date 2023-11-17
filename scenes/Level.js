@@ -114,7 +114,7 @@ export default class Level extends Phaser.Scene {
 		this.cameras.main.startFollow(this.player, true, 0.1, 0.1)
 		this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels)
 		this.cameras.main.setZoom(3)
-		this.physics.world.setBounds(0, -16, this.map.widthInPixels, this.map.heightInPixels + 16)
+		this.physics.world.setBounds(0, -16, this.map.widthInPixels, this.map.heightInPixels + 64)
 
 		/* this.snow = this.add.particles(0, 0, 'Snow', {
 			frame: [0, 1, 2, 3, 4],
@@ -166,7 +166,7 @@ export default class Level extends Phaser.Scene {
 		let state = this.registry.get('state')
 		this.cameras.main.fadeOut(300, 0, 0, 0, (camera, progress) => {
 			if (progress === 1) {
-				if (type == 'Finish' && state.levelsDone.length >= 6) this.scene.start('Story', { id: 'end' })
+				if (type == 'Finish' && state.levelsDone.length >= 6) this.scene.start('Story', { id: 'grinch' })
 				else this.scene.start('World', { level: this.level })
 			}
 		})

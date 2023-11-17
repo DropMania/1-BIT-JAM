@@ -9,7 +9,6 @@ export default class Settings extends Phaser.Scene {
 	}
 	preload() {}
 	create() {
-		
 		this.params = new URLSearchParams(window.location.search)
 		this.cursor = 0
 		this.add.rectangle(0, 0, 1280, 720, 0x000000, 0.8).setOrigin(0, 0)
@@ -21,7 +20,7 @@ export default class Settings extends Phaser.Scene {
 			})
 			.setOrigin(0, 0.5)
 			.setResolution(5)
-		this.controlImg = this.add.image(700, 300, 'controls').setVisible(false).setScale(3)
+		this.controlImg = this.add.image(700, 300, 'Controls').setVisible(false).setScale(3)
 		this.volExplatnation = this.add
 			.text(700, 300, 'Press <- and -> to adjust volume', {
 				fill: '#fff',
@@ -32,10 +31,10 @@ export default class Settings extends Phaser.Scene {
 			.setResolution(5)
 			.setVisible(false)
 
-		if(localStorage.getItem('volume') === null){
+		if (localStorage.getItem('volume') === null) {
 			this.vol = Math.round(this.sound.volume * 10).toFixed(0)
-		}else{
-			this.vol = Number(localStorage.getItem('volume')).toFixed(0);
+		} else {
+			this.vol = Number(localStorage.getItem('volume')).toFixed(0)
 		}
 		this.options = ['Resume', `Volume - ${this.vol}`, 'Controls']
 
@@ -99,7 +98,7 @@ export default class Settings extends Phaser.Scene {
 	select() {
 		switch (this.options[this.cursor]) {
 			case 'Resume':
-				// this.sound.play('menu')
+				this.sound.play('menu')
 				this.resume()
 				break
 		}
@@ -110,7 +109,7 @@ export default class Settings extends Phaser.Scene {
 			this.cursor = this.menuOptions.getChildren().length - 1
 		}
 		this.showCursor()
-		// this.sound.play('menu')
+		this.sound.play('menu')
 	}
 	down() {
 		this.cursor++
@@ -118,7 +117,7 @@ export default class Settings extends Phaser.Scene {
 			this.cursor = 0
 		}
 		this.showCursor()
-		// this.sound.play('menu')
+		this.sound.play('menu')
 	}
 	left() {
 		if (this.cursor === 1) {
@@ -137,7 +136,7 @@ export default class Settings extends Phaser.Scene {
 			this.options[1] = `Volume - ${this.vol}`
 			this.showCursor()
 			this.sound.volume = (this.vol / 10).toFixed(1)
-			console.log(this.sound.volume);
+			console.log(this.sound.volume)
 			localStorage.setItem('volume', this.vol)
 		}
 	}

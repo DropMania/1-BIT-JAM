@@ -6,11 +6,21 @@ export default class Loading extends Phaser.Scene {
 	}
 	preload() {
 		this.load.setBaseURL('assets/')
-		this.sprites = ['Santa', 'Sack', 'Snow', 'Dog', 'Sleigh', 'Lifes','Child']
-		this.static = ['Tree', 'Presents', 'Check', 'Block', 'Border']
-		this.images = ['FloorIsLava', 'Controls', 'BewareOfDogs', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'TreeThatWay']
-		this.sfx = ['fanfare', 'gameOver', 'text_1', 'text_2', 'text_3']
-		this.songs = ['winter', 'overworld']
+		this.sprites = ['Santa', 'Sack', 'Snow', 'Dog', 'Sleigh', 'Lifes', 'Child']
+		this.static = ['Tree', 'Presents', 'Check', 'Block', 'Border', 'GrinchWorld']
+		this.images = [
+			'FloorIsLava',
+			'Controls',
+			'BewareOfDogs',
+			'ArrowUp',
+			'ArrowDown',
+			'ArrowLeft',
+			'ArrowRight',
+			'UseDash',
+			'TreeThatWay',
+		]
+		this.sfx = ['fanfare', 'gameOver', 'text_1', 'text_2', 'text_3', 'jump', 'hit', 'menu', 'dash']
+		this.songs = ['winter', 'overworld', 'happy']
 		this.sprites.forEach((sprite) => {
 			this.load.aseprite(sprite, `sprites/${sprite}/${sprite}.png`, `sprites/${sprite}/${sprite}.json`)
 		})
@@ -28,7 +38,8 @@ export default class Loading extends Phaser.Scene {
 		})
 		this.load.image('tileset', 'tileset.png')
 		this.load.tilemapTiledJSON(`level_begin`, `levels/level_begin.json`)
-		for (var i = 0; i <= 4; i++) {
+		this.load.tilemapTiledJSON(`level_grinch`, `levels/level_grinch.json`)
+		for (var i = 0; i <= 5; i++) {
 			this.load.tilemapTiledJSON(`level_${i}`, `levels/level_${i}.json`)
 		}
 		this.load.tilemapTiledJSON('world', 'world/world.json')

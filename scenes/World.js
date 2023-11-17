@@ -45,7 +45,7 @@ export default class World extends Phaser.Scene {
 				this.sleigh = new Sleigh(this, object.x, object.y)
 			}
 			if (object.name === 'Level') {
-				let entrance = this.add.rectangle(object.x, object.y, 12, 12)
+				let entrance = this.add.rectangle(object.x, object.y, 16, 30)
 				entrance.level = properties.level
 				this.physics.add.existing(entrance)
 				this.entrances.add(entrance)
@@ -61,6 +61,20 @@ export default class World extends Phaser.Scene {
 				}
 			}
 		})
+		if (state.levelsDone.length >= 6) {
+			let grinch = this.add.image(437, 160, 'GrinchWorld')
+			this.tweens.add({
+				targets: grinch,
+				y: 150,
+				duration: 1000,
+				ease: 'Sine.easeInOut',
+				repeat: -1,
+				yoyo: true,
+			})
+			grinch.level = 'grinch'
+			this.physics.add.existing(grinch)
+			this.entrances.add(grinch)
+		}
 		if (this.level) {
 			let level = this.objectLayer.objects.find((object) => {
 				return (

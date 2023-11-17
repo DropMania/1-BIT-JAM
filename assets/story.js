@@ -7,6 +7,13 @@ export default {
 		text: 'You have to get rid of every present\n before the sun rises!',
 		levelSpawn: 'begin',
 	},
+	grinch: {
+		text: 'Oh no! The Grinch wants to ruin Christmas!\n You need to stop him!',
+		next: 'grinch2',
+	},
+	grinch2: {
+		text: 'He is hiding to the east of the city.',
+	},
 	end: {
 		text: 'You did it! You delivered all the presents!',
 		next: 'end2',

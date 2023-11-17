@@ -8,6 +8,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		this.scene.add.existing(this)
 		this.scene.physics.add.existing(this)
 		this.setGravityY(500)
+		this.setSize(22, 32)
 		this.scene.keys.jump.on('down', () => {
 			this.jump()
 		})
@@ -35,11 +36,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	}
 	jump(height = -200) {
 		if (this.body.onFloor() && !this.stopped) {
+			this.scene.sound.play('jump', { volume: 0.5 })
 			this.setVelocityY(height)
 		}
 	}
 	dash() {
 		if (this.stopped || this.isDashing || this.dashCooldown) return
+		this.scene.sound.play('dash')
 		this.isDashing = true
 		this.speed = 300
 		this.alpha = 0.8
@@ -119,6 +122,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		if (this.isKnockbacked) return
 		if (this.stopped) return
 		console.log('player hit')
+		this.scene.sound.play('hit')
 		this.isKnockbacked = true
 		let playerHealth = this.scene.registry.get('player_health') - 1
 		playerHealth = playerHealth < 0 ? 0 : playerHealth

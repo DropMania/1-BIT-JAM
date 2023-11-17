@@ -8,6 +8,20 @@ export default class Menu extends Phaser.Scene {
 	preload() {}
 	create() {
 		// console.log(this.UrlParams.get('lvl'))
+		this.sound.stopAll()
+		this.sound.play('happy', { loop: true, volume: 0.5 })
+		this.background = this.add.image(0, -900, 'world').setOrigin(0, 0).setScale(5)
+
+		this.snow = this.add.particles(0, 0, 'Snow', {
+			frame: [0, 1, 2, 3, 4],
+			x: { min: 0, max: this.background.width * 3 },
+			blendMode: 'ADD',
+			scale: { start: 1, end: 0 },
+			gravityY: 20,
+			lifespan: 5000,
+			quantity: 1,
+			speed: { min: 10, max: 50 },
+		})
 		this.UrlParams = new URLSearchParams(window.location.search)
 		this.add
 			.text(500, 100, this.registry.get('game_title'), {
@@ -42,7 +56,7 @@ export default class Menu extends Phaser.Scene {
 						this.scene.start('Level', { level: this.UrlParams.get('lvl') })
 						return
 					}
-					
+
 					this.scene.start('Story', { id: 'intro' })
 				},
 			},
@@ -113,7 +127,7 @@ export default class Menu extends Phaser.Scene {
 	update(time, delta) {}
 
 	select() {
-		// this.sound.play('menu')
+		this.sound.play('menu')
 		this.options[this.cursor].action()
 	}
 	up() {
@@ -122,7 +136,7 @@ export default class Menu extends Phaser.Scene {
 			this.cursor = this.menuOptions.getChildren().length - 1
 		}
 		this.showCursor()
-		// this.sound.play('menu')
+		this.sound.play('menu')
 	}
 	down() {
 		this.cursor++
@@ -130,7 +144,7 @@ export default class Menu extends Phaser.Scene {
 			this.cursor = 0
 		}
 		this.showCursor()
-		// this.sound.play('menu')
+		this.sound.play('menu')
 	}
 	left() {}
 	right() {}
