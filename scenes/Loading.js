@@ -18,6 +18,7 @@ export default class Loading extends Phaser.Scene {
 			'ArrowRight',
 			'UseDash',
 			'TreeThatWay',
+			'Jump'
 		]
 		this.sfx = ['fanfare', 'gameOver', 'text_1', 'text_2', 'text_3', 'jump', 'hit', 'menu', 'dash']
 		this.songs = ['winter', 'overworld', 'happy']

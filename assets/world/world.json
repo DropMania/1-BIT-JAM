@@ -38,6 +38,11 @@
                  "point":true,
                  "properties":[
                         {
+                         "name":"display",
+                         "type":"string",
+                         "value":"1"
+                        }, 
+                        {
                          "name":"level",
                          "type":"string",
                          "value":"0"
@@ -56,6 +61,11 @@
                  "point":true,
                  "properties":[
                         {
+                         "name":"display",
+                         "type":"string",
+                         "value":"3"
+                        }, 
+                        {
                          "name":"level",
                          "type":"string",
                          "value":"1"
@@ -73,6 +83,11 @@
                  "name":"Level",
                  "point":true,
                  "properties":[
+                        {
+                         "name":"display",
+                         "type":"string",
+                         "value":"2"
+                        }, 
                         {
                          "name":"level",
                          "type":"string",
@@ -116,6 +131,11 @@
                  "point":true,
                  "properties":[
                         {
+                         "name":"display",
+                         "type":"string",
+                         "value":"4"
+                        }, 
+                        {
                          "name":"level",
                          "type":"string",
                          "value":"3"
@@ -124,8 +144,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":269.363636363636,
-                 "y":121.181818181818
+                 "x":269.364,
+                 "y":121.182
                 }, 
                 {
                  "height":0,
@@ -133,6 +153,11 @@
                  "name":"Level",
                  "point":true,
                  "properties":[
+                        {
+                         "name":"display",
+                         "type":"string",
+                         "value":"5"
+                        }, 
                         {
                          "name":"level",
                          "type":"string",
@@ -151,6 +176,11 @@
                  "name":"Level",
                  "point":true,
                  "properties":[
+                        {
+                         "name":"display",
+                         "type":"string",
+                         "value":"6"
+                        }, 
                         {
                          "name":"level",
                          "type":"string",
@@ -173,7 +203,7 @@
  "nextobjectid":12,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.10.1",
+ "tiledversion":"1.10.2",
  "tileheight":16,
  "tilesets":[
         {

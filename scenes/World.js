@@ -53,6 +53,17 @@ export default class World extends Phaser.Scene {
 				if (state.levelsDone.includes(properties.level)) {
 					this.add.image(object.x, object.y, 'Check')
 				}
+				if(properties.display){
+					this.add.text(object.x, object.y, `${properties.display}`,{
+						fontSize: '8px',
+						fill: '#fff',
+						fontFamily: 'manaspc',
+						stroke: '#000',
+						strokeThickness: 2,
+					})
+					.setOrigin(0.5, 0.5)
+					.setResolution(5)
+				}
 			}
 			if (object.name === 'Block') {
 				if (state.levelsDone.length < 3) {
