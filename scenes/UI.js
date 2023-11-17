@@ -6,12 +6,11 @@ export default class UI extends Phaser.Scene {
 	}
 	create() {
 
-
 		this.scene.setVisible(false, 'UI')
 
 		this.lifesImg = this.add.sprite(50, 50, 'Lifes', this.registry.get('player_health'))
 		this.lifesImg.setOrigin(0)
-
+		this.lifesImg.setScale(4)
 		// this.healthDisplay = this.add
 		// 	.text(100, 100, this.registry.get('player_health'), {
 		// 		fill: '#fff',
