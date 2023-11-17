@@ -53,8 +53,9 @@ export default class Menu extends Phaser.Scene {
 					//this.scene.start('World')
 					this.scene.start('UI')
 					if (this.UrlParams.has('lvl')) {
-						this.scene.start('Level', { level: this.UrlParams.get('lvl') })
-						return
+						let lvl = this.UrlParams.get('lvl')
+						if (lvl == 'grinch') return this.scene.start('GrinchBoss', { level: lvl })
+						return this.scene.start('Level', { level: lvl })
 					}
 
 					this.scene.start('Story', { id: 'intro' })

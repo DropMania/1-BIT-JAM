@@ -1,0 +1,36 @@
+{ "frames": {
+   "0": {
+    "frame": { "x": 1, "y": 1, "w": 18, "h": 18 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
+   },
+   "1": {
+    "frame": { "x": 1, "y": 20, "w": 18, "h": 8 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 10, "w": 16, "h": 6 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.2.40-x64",
+  "image": "Switch.png",
+  "format": "RGBA8888",
+  "size": { "w": 19, "h": 28 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "switch_off", "from": 0, "to": 0, "direction": "forward" },
+   { "name": "switch_on", "from": 1, "to": 1, "direction": "forward" }
+  ],
+  "layers": [
+   { "name": "Layer 1", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

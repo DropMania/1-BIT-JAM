@@ -15,7 +15,7 @@ export default {
 		text: 'He is hiding to the east of the city.',
 	},
 	end: {
-		text: 'You did it! You delivered all the presents!',
+		text: 'You did it! You delivered all the presents!\n And defeated the Grinch!',
 		next: 'end2',
 	},
 	end2: {

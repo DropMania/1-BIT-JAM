@@ -1,0 +1,45 @@
+{ "frames": {
+   "0": {
+    "frame": { "x": 1, "y": 1, "w": 48, "h": 62 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 1, "y": 4, "w": 46, "h": 60 },
+    "sourceSize": { "w": 48, "h": 64 },
+    "duration": 100
+   },
+   "1": {
+    "frame": { "x": 50, "y": 1, "w": 48, "h": 62 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 1, "y": 4, "w": 46, "h": 60 },
+    "sourceSize": { "w": 48, "h": 64 },
+    "duration": 100
+   },
+   "2": {
+    "frame": { "x": 1, "y": 64, "w": 48, "h": 62 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 1, "y": 4, "w": 46, "h": 60 },
+    "sourceSize": { "w": 48, "h": 64 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.2.40-x64",
+  "image": "Grinch.png",
+  "format": "RGBA8888",
+  "size": { "w": 98, "h": 126 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "grinch_idle", "from": 0, "to": 0, "direction": "forward" },
+   { "name": "grinch_shoot", "from": 1, "to": 1, "direction": "forward" },
+   { "name": "grinch_dead", "from": 2, "to": 2, "direction": "forward" }
+  ],
+  "layers": [
+   { "name": "Layer 1", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

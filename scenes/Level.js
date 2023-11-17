@@ -2,8 +2,8 @@ import Player from '../sprites/Player.js'
 import { createEnemie } from '../sprites/EnemiesFactory.js'
 
 export default class Level extends Phaser.Scene {
-	constructor(game) {
-		super({ key: 'Level' })
+	constructor(game, key = 'Level') {
+		super({ key })
 
 		this.game = game
 	}
@@ -75,6 +75,7 @@ export default class Level extends Phaser.Scene {
 		this.backgroundLayer.alpha = 0.5
 		this.groundLayer = this.map.createLayer('Ground', this.tileset, 0, 0)
 		this.objectLayer = this.map.getObjectLayer('Objects')
+		this.switches = this.add.group()
 		this.objectLayer.objects.forEach((object) => {
 			let props = {}
 			if (object.properties) {
@@ -92,6 +93,17 @@ export default class Level extends Phaser.Scene {
 				this.add.image(object.x, object.y, props.src)
 			} else if (object.name === 'Enemie') {
 				this.peds.add(createEnemie(this, props.type, object.x, object.y, props))
+			} else if (object.name === 'Switch') {
+				let sw = this.add.sprite(object.x, object.y, 'Switch')
+				sw.setOrigin(0.5, 1)
+				sw.setFrame(0)
+				this.physics.add.existing(sw)
+				sw.body.setImmovable(true)
+				sw.body.checkCollision.down = false
+				sw.body.checkCollision.left = false
+				sw.body.checkCollision.right = false
+				sw.pressed = false
+				this.switches.add(sw)
 			}
 		})
 

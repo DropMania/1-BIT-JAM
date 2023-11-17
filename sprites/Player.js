@@ -23,6 +23,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 				this.dash()
 			}
 		})
+		this.lastTouchedPlatform = false
 		this.sack = this.scene.add.sprite(this.x - 8, this.y, 'Sack')
 		this.sack.setDepth(9)
 		this.sackSize = this.scene.registry.get('state').sackSize
@@ -35,7 +36,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		this.setCollideWorldBounds(true)
 	}
 	jump(height = -200) {
-		if (this.body.onFloor() && !this.stopped) {
+		if ((this.body.onFloor() || this.lastTouchedPlatform) && !this.stopped) {
+			this.lastTouchedPlatform = false
 			this.scene.sound.play('jump', { volume: 0.5 })
 			this.setVelocityY(height)
 		}

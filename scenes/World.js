@@ -22,6 +22,7 @@ export default class World extends Phaser.Scene {
 			space: Phaser.Input.Keyboard.KeyCodes.SPACE,
 		})
 		this.song = this.sound.add('overworld', { loop: true, volume: 0.5 })
+		this.sound.stopAll()
 		this.song.play()
 		this.pads = this.input.gamepad
 		this.onLevel = false
@@ -76,6 +77,10 @@ export default class World extends Phaser.Scene {
 			this.entrances.add(grinch)
 		}
 		if (this.level) {
+			if (this.level === 'grinch') {
+				this.sleigh.x = 437
+				this.sleigh.y = 160
+			}
 			let level = this.objectLayer.objects.find((object) => {
 				return (
 					object.name === 'Level' &&
@@ -128,6 +133,10 @@ export default class World extends Phaser.Scene {
 		this.cameras.main.fadeOut(500, 0, 0, 0, (camera, progress) => {
 			if (progress === 1) {
 				this.song.stop()
+				if (this.currentEntrance.level === 'grinch') {
+					this.scene.start('GrinchBoss', { level: this.currentEntrance.level })
+					return
+				}
 				this.scene.start('Level', { level: this.currentEntrance.level })
 			}
 		})

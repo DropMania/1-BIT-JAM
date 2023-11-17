@@ -7,6 +7,7 @@ import World from './scenes/World.js'
 import Level from './scenes/Level.js'
 import UI from './scenes/UI.js'
 import Story from './scenes/Stroy.js'
+import GrinchBoss from './scenes/GrinchBoss.js'
 new Phaser.Game({
 	type: Phaser.AUTO,
 	width: window.innerWidth,
@@ -57,5 +58,5 @@ new Phaser.Game({
 			},
 		],
 	},
-	scene: [LoadingScreen, Loading, Menu, Settings, Credits, World, Level, Story, UI],
+	scene: [LoadingScreen, Loading, Menu, Settings, Credits, World, Level, GrinchBoss, Story, UI],
 })

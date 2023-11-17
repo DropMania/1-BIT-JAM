@@ -6,8 +6,8 @@ export default class Loading extends Phaser.Scene {
 	}
 	preload() {
 		this.load.setBaseURL('assets/')
-		this.sprites = ['Santa', 'Sack', 'Snow', 'Dog', 'Sleigh', 'Lifes', 'Child']
-		this.static = ['Tree', 'Presents', 'Check', 'Block', 'Border', 'GrinchWorld']
+		this.sprites = ['Santa', 'Sack', 'Snow', 'Dog', 'Sleigh', 'Lifes', 'Child', 'Grinch', 'Ball', 'Switch']
+		this.static = ['Tree', 'Presents', 'Check', 'Block', 'Border', 'GrinchWorld', 'Platform']
 		this.images = [
 			'FloorIsLava',
 			'Controls',
