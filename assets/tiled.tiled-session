@@ -99,10 +99,10 @@
                 4
             ],
             "scale": 3,
-            "selectedLayer": 2,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 240,
-                "y": 119.83333333333334
+                "x": 211.66666666666663,
+                "y": 138.66666666666663
             }
         },
         "levels/level_begin.tmx#tileset": {
@@ -150,14 +150,14 @@
     ],
     "project": "tiled.tiled-project",
     "recentFiles": [
-        "world/world.tmx",
         "levels/level_0.tmx",
+        "levels/level_5.tmx",
+        "levels/level_1.tmx",
+        "levels/level_grinch.tmx",
+        "world/world.tmx",
         "levels/level_2.tmx",
         "levels/level_3.tmx",
         "levels/level_begin.tmx",
-        "levels/level_4.tmx",
-        "levels/level_1.tmx",
-        "levels/level_5.tmx",
-        "levels/level_grinch.tmx"
+        "levels/level_4.tmx"
     ]
 }
