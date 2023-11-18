@@ -25,7 +25,7 @@ export default class Loading extends Phaser.Scene {
 			'DontLetThemSeeYou'
 		]
 		this.sfx = ['fanfare', 'gameOver', 'text_1', 'text_2', 'text_3', 'jump', 'hit', 'menu', 'dash']
-		this.songs = ['winter', 'overworld', 'happy']
+		this.songs = ['winter', 'overworld', 'happy', 'boss']
 		this.sprites.forEach((sprite) => {
 			this.load.aseprite(sprite, `sprites/${sprite}/${sprite}.png`, `sprites/${sprite}/${sprite}.json`)
 		})

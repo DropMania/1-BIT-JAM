@@ -124,6 +124,12 @@
  "nextlayerid":5,
  "nextobjectid":8,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"song",
+         "type":"string",
+         "value":"boss"
+        }],
  "renderorder":"right-down",
  "tiledversion":"1.10.1",
  "tileheight":16,

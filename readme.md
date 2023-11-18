@@ -102,8 +102,32 @@
     -   sign in the background
     -   you know what to do.. dont touch the floor
 
-
 # sounds
-- text display sounds
-- jumping sound (better feedback?)
-- damage/hit sound
+
+-   text display sounds
+-   jumping sound (better feedback?)
+-   damage/hit sound
+
+Story
+
+Your name is Claus... Santa..Claus.
+
+​The Night is almost over! The Sun is rising on the horizon. Only a few more Presents left to deliver.
+But be careful. This town is different. Its a madness!
+Can you save Christmas? Can you deliver all the presents and overcome the dangers of this town?
+
+Good Luck Santa!
+
+Controls - Keyboard - WASD -> Movement - Space -> Jump - K -> Dash
+-Gamepad - Arrow-Keys -> Movement -
+
+# DropManiaGaming [Twitch](https://www.twitch.tv/dropmaniagaming)
+
+    - Game Dev
+    - Music
+    - Art
+
+# MrBartagam
+
+    - Game Dev
+    - Art
