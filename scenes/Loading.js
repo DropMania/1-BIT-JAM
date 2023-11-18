@@ -22,6 +22,7 @@ export default class Loading extends Phaser.Scene {
 			'Jump',
 			'Switches',
 			'Town',
+			'DontLetThemSeeYou'
 		]
 		this.sfx = ['fanfare', 'gameOver', 'text_1', 'text_2', 'text_3', 'jump', 'hit', 'menu', 'dash']
 		this.songs = ['winter', 'overworld', 'happy']
@@ -56,6 +57,7 @@ export default class Loading extends Phaser.Scene {
 	}
 	create() {
 		if (localStorage.getItem('volume') === null) {
+			this.sound.volume = 0.1
 			let vol = Math.round(this.sound.volume * 10).toFixed(0)
 			localStorage.setItem('volume', vol)
 		} else {

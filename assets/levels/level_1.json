@@ -88,8 +88,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":663.022727272727,
-                 "y":247.121212121212
+                 "x":663.023,
+                 "y":247.121
                 }, 
                 {
                  "height":0,
@@ -100,7 +100,7 @@
                         {
                          "name":"src",
                          "type":"string",
-                         "value":"TreeThatWay"
+                         "value":"DontLetThemSeeYou"
                         }],
                  "rotation":0,
                  "type":"",
@@ -152,8 +152,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":461,
-                 "y":424.5
+                 "x":501,
+                 "y":423.75
                 }, 
                 {
                  "height":0,
@@ -198,7 +198,7 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":737.333333333333,
+                 "x":737.333,
                  "y":426
                 }, 
                 {
@@ -239,8 +239,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":1094.91666666667,
-                 "y":183.833333333333
+                 "x":1094.92,
+                 "y":183.833
                 }, 
                 {
                  "height":0,
@@ -258,7 +258,7 @@
                  "visible":true,
                  "width":0,
                  "x":1381.25,
-                 "y":184.166666666667
+                 "y":184.167
                 }, 
                 {
                  "height":0,
@@ -293,8 +293,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":663.454545454545,
-                 "y":286.181818181818
+                 "x":663.455,
+                 "y":286.182
                 }, 
                 {
                  "height":0,
@@ -313,6 +313,24 @@
                  "width":0,
                  "x":1543.25,
                  "y":96
+                }, 
+                {
+                 "height":0,
+                 "id":33,
+                 "name":"Image",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"src",
+                         "type":"string",
+                         "value":"Jump"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":372.5,
+                 "y":338.5
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -321,8 +339,14 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":33,
+ "nextobjectid":34,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"song",
+         "type":"string",
+         "value":"winter"
+        }],
  "renderorder":"right-down",
  "tiledversion":"1.10.2",
  "tileheight":16,

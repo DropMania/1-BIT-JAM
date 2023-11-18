@@ -18,7 +18,7 @@ export default class Level extends Phaser.Scene {
 		}
 
 		this.raycaster = this.raycasterPlugin.createRaycaster({
-			debug: true,
+			// debug: true,
 		})
 		this.keys = this.input.keyboard.addKeys({
 			left: Phaser.Input.Keyboard.KeyCodes.A,

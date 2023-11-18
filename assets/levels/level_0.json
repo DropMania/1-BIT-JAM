@@ -63,24 +63,6 @@
                 }, 
                 {
                  "height":0,
-                 "id":3,
-                 "name":"Enemie",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"dog"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":320,
-                 "y":160
-                }, 
-                {
-                 "height":0,
                  "id":4,
                  "name":"Tree",
                  "point":true,
@@ -90,6 +72,24 @@
                  "width":0,
                  "x":2352,
                  "y":176
+                }, 
+                {
+                 "height":0,
+                 "id":5,
+                 "name":"Image",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"src",
+                         "type":"string",
+                         "value":"ArrowRight"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":94,
+                 "y":148.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -98,7 +98,7 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":5,
+ "nextobjectid":6,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -107,7 +107,7 @@
          "value":"winter"
         }],
  "renderorder":"right-down",
- "tiledversion":"1.10.1",
+ "tiledversion":"1.10.2",
  "tileheight":16,
  "tilesets":[
         {
