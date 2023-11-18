@@ -10,7 +10,7 @@ export default class Story extends Phaser.Scene {
 	preload() {}
 	create() {
 		let fullText = [...this.story.text]
-
+		this.sound.stopAll()
 		this.storyText = this.add
 			.text(this.game.config.width / 2, 300, '', {
 				fill: '#fff',

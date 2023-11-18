@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="30" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="4">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="30" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="5">
  <editorsettings>
   <export target="level_begin.json" format="json"/>
  </editorsettings>
@@ -31,9 +31,15 @@
   <object id="2" name="Tree" x="448" y="192">
    <point/>
   </object>
-  <object id="3" name="Image" x="236.667" y="105">
+  <object id="3" name="Image" x="238.667" y="98">
    <properties>
     <property name="src" value="Controls"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="4" name="Image" x="435.333" y="128.333">
+   <properties>
+    <property name="src" value="Town"/>
    </properties>
    <point/>
   </object>

@@ -88,8 +88,26 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":236.667,
-                 "y":105
+                 "x":238.667,
+                 "y":98
+                }, 
+                {
+                 "height":0,
+                 "id":4,
+                 "name":"Image",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"src",
+                         "type":"string",
+                         "value":"Town"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":435.333333333333,
+                 "y":128.333333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -98,7 +116,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":4,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "properties":[
         {

@@ -1,9 +1,9 @@
 {
-    "activeFile": "levels/level_begin.tmx",
+    "activeFile": "levels/level_grinch.tmx",
     "expandedProjectPaths": [
-        ".",
         "levels",
-        "world"
+        "world",
+        "."
     ],
     "fileStates": {
         "": {
@@ -34,8 +34,8 @@
             "scale": 1,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 729,
-                "y": 142
+                "x": 800,
+                "y": 240.5
             }
         },
         "levels/level_1.tmx#tileset": {
@@ -45,8 +45,8 @@
             "scale": 1,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 1209,
-                "y": -96
+                "x": 1360,
+                "y": 120.5
             }
         },
         "levels/level_2.tmx#tileset": {
@@ -87,8 +87,8 @@
             "scale": 0.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 484,
-                "y": 20
+                "x": 2000,
+                "y": 321
             }
         },
         "levels/level_5.tmx#tileset": {
@@ -101,19 +101,22 @@
             "scale": 3,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 212,
-                "y": 139
+                "x": 240,
+                "y": 119.83333333333334
             }
         },
         "levels/level_begin.tmx#tileset": {
             "scaleInDock": 1
         },
         "levels/level_grinch.tmx": {
-            "scale": 1.5,
-            "selectedLayer": 2,
+            "expandedObjectLayers": [
+                4
+            ],
+            "scale": 3,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 276.6666666666667,
-                "y": 340.6666666666667
+                "x": 147.99999999999997,
+                "y": 399
             }
         },
         "levels/level_grinch.tmx#tileset": {
@@ -126,8 +129,8 @@
             "scale": 8,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 401.75,
-                "y": 183
+                "x": 241.625,
+                "y": 239.9375
             }
         },
         "world/world.tmx#tileset": {
@@ -141,16 +144,20 @@
         "levels/level_3.tmx",
         "levels/level_begin.tmx",
         "levels/level_4.tmx",
-        "levels/level_1.tmx"
+        "levels/level_1.tmx",
+        "levels/level_5.tmx",
+        "levels/level_grinch.tmx"
     ],
     "project": "tiled.tiled-project",
     "recentFiles": [
-        "levels/level_1.tmx",
         "world/world.tmx",
         "levels/level_0.tmx",
         "levels/level_2.tmx",
         "levels/level_3.tmx",
+        "levels/level_begin.tmx",
         "levels/level_4.tmx",
-        "levels/level_begin.tmx"
+        "levels/level_1.tmx",
+        "levels/level_5.tmx",
+        "levels/level_grinch.tmx"
     ]
 }

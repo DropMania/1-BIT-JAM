@@ -29,6 +29,8 @@ export default class GrinchBoss extends Level {
 
 		this.grinch = new Grinch(this, this.map.widthInPixels / 2, this.map.heightInPixels / 2)
 		this.physics.add.collider(this.switches, this.player, (sw, player) => {
+			if (sw.pressed) return
+			this.sound.play('hit')
 			sw.setFrame(1)
 			sw.body.setSize(16, 1)
 			sw.body.setOffset(0, 15)
@@ -45,9 +47,10 @@ export default class GrinchBoss extends Level {
 	}
 	end() {
 		if (this.ended) return
+		this.player.stop()
 		this.ended = true
 		this.sound.stopAll()
-		this.sound.play('fanfare', { volume: 0.5 })
+		this.sound.play('fanfare')
 		this.cameras.main.stopFollow()
 		this.cameras.main.zoomTo(2, 1000)
 		this.cameras.main.pan(this.grinch.x, this.grinch.y, 1000, 'Sine.easeInOut', true)

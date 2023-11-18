@@ -11,7 +11,8 @@ export default class Menu extends Phaser.Scene {
 		this.sound.stopAll()
 		this.sound.play('happy', { loop: true, volume: 0.5 })
 		this.background = this.add.image(0, -900, 'world').setOrigin(0, 0).setScale(5)
-
+		this.background.alphaTopLeft = 0
+		this.background.alphaBottomLeft = 0
 		this.snow = this.add.particles(0, 0, 'Snow', {
 			frame: [0, 1, 2, 3, 4],
 			x: { min: 0, max: this.background.width * 3 },
@@ -22,15 +23,17 @@ export default class Menu extends Phaser.Scene {
 			quantity: 1,
 			speed: { min: 10, max: 50 },
 		})
+		this.add.image(1000, 500, 'Santa', 3).setScale(15).setFlipX(true).setRotation(0.3)
 		this.UrlParams = new URLSearchParams(window.location.search)
 		this.add
-			.text(500, 100, this.registry.get('game_title'), {
+			.text(100, 100, this.registry.get('game_title'), {
 				fill: '#fff',
-				fontSize: '25px',
+				fontSize: '48px',
 				fontFamily: 'manaspc',
 			})
 			.setOrigin(0.5, 0.5)
 			.setResolution(5)
+			.setOrigin(0, 0.5)
 
 		this.menuOptions = this.add.group()
 		this.cursor = 0
@@ -79,13 +82,14 @@ export default class Menu extends Phaser.Scene {
 		this.options.forEach((option, index) => {
 			this.menuOptions.add(
 				this.add
-					.text(500, 200 + index * 50, option.text, {
+					.text(100, 250 + index * 60, option.text, {
 						fill: '#fff',
-						fontSize: '24px',
+						fontSize: '32px',
 						fontFamily: 'manaspc',
 					})
 					.setOrigin(0, 0.5)
 					.setResolution(5)
+					.setOrigin(0, 0.5)
 			)
 		})
 

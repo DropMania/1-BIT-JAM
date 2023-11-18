@@ -20,7 +20,7 @@ export default class Credits extends Phaser.Scene {
 			['Music', ['DropMania', '']],
 			['Sound Effects', ['DropMania', '']],
 			['Level Design', ['DropMania', 'MrBartagam', '']],
-			['Special Thanks', ['Phaser-Team', 'JavaScript', 'My Community <3']],
+			['Special Thanks', ['Phaser-Team', 'JavaScript', '1-BIT JAM Team']],
 		]
 		this.skipText = this.add
 			.text(1000, 650, 'Press Space to Continue', {

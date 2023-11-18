@@ -1,3 +1,4 @@
+import story from '../assets/story.js'
 export default class Loading extends Phaser.Scene {
 	constructor(game) {
 		super({ key: 'Loading', active: true })
@@ -18,7 +19,9 @@ export default class Loading extends Phaser.Scene {
 			'ArrowRight',
 			'UseDash',
 			'TreeThatWay',
-			'Jump'
+			'Jump',
+			'Switches',
+			'Town',
 		]
 		this.sfx = ['fanfare', 'gameOver', 'text_1', 'text_2', 'text_3', 'jump', 'hit', 'menu', 'dash']
 		this.songs = ['winter', 'overworld', 'happy']
@@ -45,6 +48,11 @@ export default class Loading extends Phaser.Scene {
 		}
 		this.load.tilemapTiledJSON('world', 'world/world.json')
 		this.load.image('world', 'world/world.png')
+		Object.values(story).forEach((s) => {
+			if (s.img) {
+				this.load.image(`story_${s.img}`, `sprites/story/${s.img}.png`)
+			}
+		})
 	}
 	create() {
 		if (localStorage.getItem('volume') === null) {

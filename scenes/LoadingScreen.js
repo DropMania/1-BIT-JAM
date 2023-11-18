@@ -6,7 +6,7 @@ export default class LoadingScreen extends Phaser.Scene {
 	}
 	preload() {}
 	create() {
-		this.registry.set('game_title', 'Christmas Madness (working title)')
+		this.registry.set('game_title', 'Christmas Madness')
 		this.registry.set('player_health', 0)
 
 		this.add
